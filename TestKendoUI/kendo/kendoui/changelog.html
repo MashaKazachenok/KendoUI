@@ -1,0 +1,173 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Changelog for Kendo UI v2014.3.1411</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font: .75em/1.5 Tahoma, sans-serif;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            font-size: normal;
+        }
+
+        h2 {
+            font-size: 2em;
+            font-weight: normal;
+
+            margin: 1.2em 0 .3em;
+            padding-bottom: .2em;
+        }
+
+        #page {
+            width: 50em;
+            margin: 0 auto 2em;
+            border-radius: 0 0 1em 1em;
+            box-shadow: 0 0 10px #ccc;
+            padding: 1em 2em 2em;
+        }
+
+        .poBoxIcon {
+            float: left;
+            font-size: 2em;
+            margin: 1.2em .5em 0 0;
+        }
+
+        .poTopLine {
+            border-top: 2px solid #e1e1e1;
+            margin: 17px 0 40px 0;
+        }
+    </style>
+
+    <base href="http://www.telerik.com/support/whats-new/kendo-ui-web/release-history">
+</head>
+<body>
+    <div id="page">
+        <h1 class="title">Release notes for Kendo UI v2014.3.1411</h1>
+
+        <h1>Components</h1>
+        <div class="tClear poTopLine">
+            <div class="poBoxIconText">
+                
+                <p><strong>What's fixed</strong></p><ul><li>Drawer closing click propagates to the view</li><li>Static methods are missing from TypeScript definitions</li><li>Static methods are missing from TypeScript definitions</li></ul>
+            </div>
+        </div>
+
+
+        <div class="tClear poTopLine">
+            <h2>Application</h2>
+            
+            <p><strong>What's fixed</strong></p><ul><li>app level native scrolling does not work on WP8</li></ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Barcode</h2>
+            
+            <p><strong>What's fixed</strong></p><ul><li>Checksum is not shown</li></ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Chart</h2>
+            
+            <p><strong>What's fixed</strong></p><ul><li>Tooltip is hidden when leaving the chart</li><li>Enabling axis crosshair in radar charts results in an error</li><li>Larger bubbles overlay smaller ones making them inaccessible</li><li>Note background overlays text</li><li>Series note line can't be hidden</li></ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>ColorPicker</h2>
+            
+            <p><strong>What's fixed</strong></p><ul><li>Color picker popup not aligned correclty</li></ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>ComboBox</h2>
+            
+            <p><strong>What's fixed</strong></p><ul><li>Widget shouldn't focus input in mobile devices when the popup is opened</li></ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>DataSource</h2>
+            
+            <p><strong>What's fixed</strong></p><ul><li>Parent is not initialized correctly when using remote paging and items of the current range are requested</li></ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Diagram</h2>
+            
+            <p><strong>What's fixed</strong></p><ul><li>Shape cannot be resized if the handle is above another element</li><li>Update is not called after moving a connection</li></ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Drawing</h2>
+            
+            <p><strong>What's fixed</strong></p><ul><li>Stroke with zero width is rendered in canvas rendering mode</li><li>SaveAs png file does not work the second time</li><li>Clip path IDs are not valid</li></ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Editor</h2>
+            
+            <p><strong>What's fixed</strong></p><ul><li>Splitting long paragraph does not scroll to selection</li><li>Content inserted via the paste method does not enter the undo/redo stack</li><li>CleanFormatting command errors out in IE8</li><li>Edit link from caret selection does not expand to complete link</li><li>In IE8 text gets duplicated when new row is added</li><li>Inline editor within a list (ul,ol) does not correctly justify or insert other lists</li><li>Caret position is in link after editing it</li></ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Excel Export</h2>
+            <p><strong>What's new</strong></p><ul><li>Excel export uses column.values for group headers.</li><li>Use groupHeaderTemplate of hidden columns during Excel export</li></ul>
+            
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Gantt</h2>
+            
+            <p><strong>What's fixed</strong></p><ul><li>Dependencies progressively misaligned in IE when there are many rows</li></ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Grid</h2>
+            <p><strong>What's new</strong></p><ul><li>Excel export uses column.values for group headers.</li><li>Use groupHeaderTemplate of hidden columns during Excel export</li><li>Optimize showing and hiding of grid columns </li><li>ColumnReorder method is slow in IE8, using the Q3SP1</li></ul>
+            <p><strong>What's fixed</strong></p><ul><li>Rows are misaligned when window is minimized with frozen columns  </li><li>Scroll containers are duplicated after setOptions() is called</li><li>Angular template is not compiled after edit row</li><li>Memory leaks on initial load when grid is sortable</li><li>Single sortable mode does not work when columnMenu is enabled</li><li>Bug in Grid keyboard navigation with frozen columns</li></ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>MVVM</h2>
+            
+            <p><strong>What's fixed</strong></p><ul><li>Items are loaded when removing them</li></ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>MultiSelect</h2>
+            
+            <p><strong>What's fixed</strong></p><ul><li>Widget does not focus input when click the DIV area using Chrome on touch device</li></ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>PDF Export</h2>
+            
+            <p><strong>What's fixed</strong></p><ul><li>Generated pdf document cannot be saved using saveAs</li></ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>PivotGrid</h2>
+            
+            <p><strong>What's fixed</strong></p><ul><li>Misaligned cells when some measures are missing</li><li>Widget filtering does not uses dimension's members field</li></ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>SplitView</h2>
+            
+            <p><strong>What's fixed</strong></p><ul><li>Angular mobile split view cannot set to `horizontal`</li></ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Splitter</h2>
+            
+            <p><strong>What's fixed</strong></p><ul><li>Overlay is not removed when dragging from a collapsed pane</li></ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>StockChart</h2>
+            
+            <p><strong>What's fixed</strong></p><ul><li>Pane title is cleared on refresh</li></ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>TreeList</h2>
+            
+            <p><strong>What's fixed</strong></p><ul><li>TreeList createChild command doesn't work with server operations and already loaded children</li><li>TreeList editor is not completely destroyed when initialized with MVVM</li><li>Rows become hidden after refresh in popup window on iOS8</li><li>Container parameter in edit event is not the edit form for popup editing</li><li>headerTemplate of sortable column is rendered encoded</li><li>Non-alt rows are rendered with class="undefined"</li><li>AngularJS templates are not reevaluated after going out of edit mode</li><li>dataBound event is triggered at expanding / upon load error</li></ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>TreeView</h2>
+            
+            <p><strong>What's fixed</strong></p><ul><li>AngularJS templates of child items are evaluated against parent scope</li><li>AngularJS expressions break upon node change</li><li>Checkboxes are not visible</li><li>Items are loaded when removing them</li></ul>
+        </div>
+    </div>
+</body>
+</html>
