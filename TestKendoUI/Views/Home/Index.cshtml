@@ -163,17 +163,24 @@
 
         
 
-            $(document).ready(function(){
-               
-                $("#ok4").kendoButton({
+            $(document).ready(function(){               
+                initOkButton("#ok1", "#chart");
+                initOkButton("#ok2", "#chart2");
+                initOkButton("#ok3", "#chart3");
+                initOkButton("#ok4", "#chart4");
+            });
+
+            function initOkButton(button, chart)
+            {
+                $(button).kendoButton({
                     click: function (e) {
 
                         var inputs = $(e.event.target).parent().find('input');
 
-                        createChart("#chart4", $(inputs[0]).val(), $(inputs[1]).val(), $(inputs[2]).val());
+                        createChart(chart, $(inputs[0]).val(), $(inputs[1]).val(), $(inputs[2]).val());
                     }
                 });
-            });
+            }
 
             $(document).bind("kendo:skinChange", createChart);
             $(document).ready(function () {
