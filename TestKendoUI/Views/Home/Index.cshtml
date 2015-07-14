@@ -2,55 +2,41 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-</div>
-
 <div id="example">
     <div class="demo-section k-header">
         <div id="tabstrip">
             <ul>
                 <li class="k-state-active">
-                    Paris
+                    Olga
                 </li>
                 <li>
-                    New York
+                    Masha
                 </li>
                 <li>
-                    London
+                    Dasha
                 </li>
                 <li>
-                    Moscow
+                    Alex
                 </li>
             </ul>
             <div>
-                <span class="rainy">&nbsp;</span>
-                <div class="weather">
-                    <h2>17<span>&ordm;C</span></h2>
-                    <p>Rainy weather in Paris.</p>
+                <div class="demo-section k-content">
+                    <div id="chart" style="background: center no-repeat url('../content/shared/styles/world-map.png');"></div>
                 </div>
             </div>
             <div>
-                <span class="sunny">&nbsp;</span>
-                <div class="weather">
-                    <h2>29<span>&ordm;C</span></h2>
-                    <p>Sunny weather in New York.</p>
+                <div class="demo-section k-content">
+                    <div id="chart2" style="background: center no-repeat url('../content/shared/styles/world-map.png');"></div>
                 </div>
             </div>
             <div>
-                <span class="sunny">&nbsp;</span>
-                <div class="weather">
-                    <h2>21<span>&ordm;C</span></h2>
-                    <p>Sunny weather in London.</p>
+                <div class="demo-section k-content">
+                    <div id="chart3" style="background: center no-repeat url('../content/shared/styles/world-map.png');"></div>
                 </div>
             </div>
             <div>
-                <span class="cloudy">&nbsp;</span>
-                <div class="weather">
-                    <h2>16<span>&ordm;C</span></h2>
-                    <p>Cloudy weather in Moscow.</p>
+                <div class="demo-section k-content">
+                    <div id="chart4" style="background: center no-repeat url('../content/shared/styles/world-map.png');"></div>
                 </div>
             </div>
         </div>
@@ -62,6 +48,79 @@
         <script src="/kendo/kendoui/js/kendo.all.min.js"></script>
 
         <script>
+            function createChart() {
+                var settings = {
+                    title: {
+                        text: "Students"
+                    },
+                    legend: {
+                        visible: false
+                    },
+                    seriesDefaults: {
+                        type: "bar"
+                    },                    
+                    valueAxis: {
+                        max: 1600,
+                        line: {
+                            visible: false
+                        },
+                        minorGridLines: {
+                            visible: true
+                        },
+                        labels: {
+                            rotation: "auto"
+                        }
+                    },
+                    categoryAxis: {
+                        categories: ["History", "Algebra", "Biology"],
+                        majorGridLines: {
+                            visible: false
+                        }
+                    },
+                    tooltip: {
+                        visible: true,
+                        template: "#= series.name #: #= value #"
+                    }
+                };
+
+                var settings1 = $.extend({}, settings, {
+                    series: [{
+                        name: "Total Visits",
+                        data: [560, 630, 740]
+                    }],
+                });
+
+                $("#chart").kendoChart(settings1);
+
+                var settings2 = $.extend({}, settings, {
+                    series: [{
+                        name: "Number",
+                        data: [100, 200, 350]
+                    }],
+                });
+
+                $("#chart2").kendoChart(settings2);
+
+                var settings3 = $.extend({}, settings, {
+                    series: [{
+                        name: "Number",
+                        data: [59, 170, 290]
+                    }],
+                });
+                $("#chart3").kendoChart(settings3);
+
+                var settings4 = $.extend({}, settings, {
+                    series: [{
+                        name: "Number",
+                        data: [30, 49, 400]
+                    }],
+                });
+                $("#chart4").kendoChart(settings4);
+              
+            }
+
+            $(document).ready(createChart);
+            $(document).bind("kendo:skinChange", createChart);
             $(document).ready(function () {
                 $("#tabstrip").kendoTabStrip({
                     animation: {

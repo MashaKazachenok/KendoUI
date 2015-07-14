@@ -196,3 +196,4 @@ FakesAssemblies/
 *.opt
 DataManager.Web/Logos
 DataManager.Web/Images
+/packages
