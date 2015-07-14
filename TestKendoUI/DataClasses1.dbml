@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="VAHamptonAcceliPlan" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQlexpress2014;Initial Catalog=VAHamptonAcceliPlan;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="VAHamptonAcceliPlanConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CommonStudent" Member="CommonStudents">
+    <Type Name="CommonStudent">
+      <Column Name="CommonStudentId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CommonSchoolId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CommonStudentStatusId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UniqueId" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EnrollmentDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="InactiveDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MiddleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ssn" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
+      <Column Name="BirthDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LegalFirstName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LegalLastName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LegalMiddleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LegalSsn" Type="System.String" DbType="NVarChar(11)" CanBeNull="true" />
+      <Column Name="LegalBirthDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SexType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GradeType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MedicaidNo" Type="System.String" DbType="NVarChar(14)" CanBeNull="true" />
+      <Column Name="ZipCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdatedBy" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UpdatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="SuffixName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RaceAutoId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InitialEvaluationDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Avatar" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="StateTestingIdentifier" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
