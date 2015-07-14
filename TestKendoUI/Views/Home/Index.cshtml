@@ -34,7 +34,7 @@
                             <label for="currency">Biology:</label>
                             <input type="number" value="30" min="0" max="60" style="width: 100%;" />
                         </div>
-                        <button id="primaryTextButton" class="k-primary">Ok</button>
+                        <button id="ok1" class="k-primary">Ok</button>
                     </div>
                     <div id="chart"></div>
                 </div>
@@ -54,7 +54,7 @@
                             <label for="currency">Biology:</label>
                             <input type="number" value="30" min="0" max="60" style="width: 100%;" />
                         </div>
-                        <button id="primaryTextButton" data-click="myClickHandler" class="k-primary">Ok</button>
+                        <button id="ok2" class="k-primary">Ok</button>
                     </div>
                     <div id="chart2"></div>
                 </div>
@@ -74,7 +74,7 @@
                             <label for="currency">Biology:</label>
                             <input type="number" value="30" min="0" max="60" style="width: 100%;" />
                         </div>
-                        <button id="primaryTextButton" class="k-primary">Ok</button>
+                        <button id="ok3" class="k-primary">Ok</button>
                     </div>
                     <div id="chart3"></div>
                 </div>
@@ -94,7 +94,7 @@
                             <label for="currency">Biology:</label>
                             <input type="number" value="30" min="0" max="60" style="width: 100%;" />
                         </div>
-                        <button id="primaryTextButton" class="k-primary">Ok</button>
+                        <button id="ok4" class="k-primary">Ok</button>
                     </div>
                     <div id="chart4"></div>
                 </div>
@@ -161,15 +161,18 @@
             $(teg).kendoChart(settings);
         }
 
-        $(function () {
-            function myClickHandler(e) {
-                createChart("#chart4", 15, 20, 360);
-            }
-        });
+        
 
             $(document).ready(function(){
                
-                $("#primaryTextButton").kendoButton();
+                $("#ok4").kendoButton({
+                    click: function (e) {
+
+                        var inputs = $(e.event.target).parent().find('input');
+
+                        createChart("#chart4", $(inputs[0]).val(), $(inputs[1]).val(), $(inputs[2]).val());
+                    }
+                });
             });
 
             $(document).bind("kendo:skinChange", createChart);
