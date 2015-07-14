@@ -36,7 +36,27 @@
                         </div>
                         <button id="primaryTextButton" class="k-primary">Ok</button>
                     </div>
-                    <div id="chart" style="background: center no-repeat url('../content/shared/styles/world-map.png');"></div>
+                    <div id="chart"></div>
+                </div>
+            </div>
+            <div>
+                <div class="demo-section k-content">
+                    <div>
+                        <div class="textBox">
+                            <label for="currency">History:</label>
+                            <input type="number" value="30" min="0" max="60" style="width: 100%;" />
+                        </div>
+                        <div class="textBox">
+                            <label for="currency">Algebra:</label>
+                            <input type="number" value="30" min="0" max="60" style="width: 100%;" />
+                        </div>
+                        <div class="textBox">
+                            <label for="currency">Biology:</label>
+                            <input type="number" value="30" min="0" max="60" style="width: 100%;" />
+                        </div>
+                        <button id="primaryTextButton" data-click="myClickHandler" class="k-primary">Ok</button>
+                    </div>
+                    <div id="chart2"></div>
                 </div>
             </div>
             <div>
@@ -56,7 +76,7 @@
                         </div>
                         <button id="primaryTextButton" class="k-primary">Ok</button>
                     </div>
-                    <div id="chart2" style="background: center no-repeat url('../content/shared/styles/world-map.png');"></div>
+                    <div id="chart3"></div>
                 </div>
             </div>
             <div>
@@ -76,27 +96,7 @@
                         </div>
                         <button id="primaryTextButton" class="k-primary">Ok</button>
                     </div>
-                    <div id="chart3" style="background: center no-repeat url('../content/shared/styles/world-map.png');"></div>
-                </div>
-            </div>
-            <div>
-                <div class="demo-section k-content">
-                    <div>
-                        <div class="textBox">
-                            <label for="currency">History:</label>
-                            <input type="number" value="30" min="0" max="60" style="width: 100%;" />
-                        </div>
-                        <div class="textBox">
-                            <label for="currency">Algebra:</label>
-                            <input type="number" value="30" min="0" max="60" style="width: 100%;" />
-                        </div>
-                        <div class="textBox">
-                            <label for="currency">Biology:</label>
-                            <input type="number" value="30" min="0" max="60" style="width: 100%;" />
-                        </div>
-                        <button id="primaryTextButton" class="k-primary">Ok</button>
-                    </div>
-                    <div id="chart4" style="background: center no-repeat url('../content/shared/styles/world-map.png');"></div>
+                    <div id="chart4"></div>
                 </div>
             </div>
         </div>
@@ -104,85 +104,74 @@
 </div>
 
 
-    @section Scripts {
-        <script src="/kendo/kendoui/js/jquery.min.js"></script>
-        <script src="/kendo/kendoui/js/kendo.all.min.js"></script>
+@section Scripts {
+    <script src="/kendo/kendoui/js/jquery.min.js"></script>
+    <script src="/kendo/kendoui/js/kendo.all.min.js"></script>
 
-        <script>
-            function createChart() {
-                var settings = {
-                    title: {
-                        text: "Assessment of progress"
-                    },
-                    legend: {
+    <script>
+        function createChart(teg, number1, number2, number3) {
+
+            setSettingsBar(teg, number1, number2, number3);
+
+        }
+
+        function setSettingsBar(teg, number1, number2, number3) {
+
+            var settings = {
+                title: {
+                    text: "Assessment of progress"
+                },
+                legend: {
+                    visible: false
+                },
+                seriesDefaults: {
+                    type: "bar"
+                },
+                valueAxis: {
+                    max: 1600,
+                    line: {
                         visible: false
                     },
-                    seriesDefaults: {
-                        type: "bar"
-                    },                    
-                    valueAxis: {
-                        max: 1600,
-                        line: {
-                            visible: false
-                        },
-                        minorGridLines: {
-                            visible: true
-                        },
-                        labels: {
-                            rotation: "auto"
-                        }
+                    minorGridLines: {
+                        visible: true
                     },
-                    categoryAxis: {
-                        categories: ["History", "Algebra", "Biology"],
-                        majorGridLines: {
-                            visible: false
-                        }
-                    },
-                    tooltip: {
-                        visible: true,
-                        template: "#= series.name #: #= value #"
+                    labels: {
+                        rotation: "auto"
                     }
-                };
+                },
+                categoryAxis: {
+                    categories: ["History", "Algebra", "Biology"],
+                    majorGridLines: {
+                        visible: false
+                    }
+                },
+                tooltip: {
+                    visible: true,
+                    template: "#= series.name #: #= value #"
+                }
+            };
 
-                var settings1 = $.extend({}, settings, {
-                    series: [{
-                        name: "Total Visits",
-                        data: [560, 630, 740]
-                    }],
-                });
+            var settings = $.extend({}, settings, {
+                series: [{
+                    name: "Number",
+                    data: [number1, number2, number3]
+                }],
+            });
 
-                $("#chart").kendoChart(settings1);
+            $(teg).kendoChart(settings);
+        }
 
-                var settings2 = $.extend({}, settings, {
-                    series: [{
-                        name: "Number",
-                        data: [100, 200, 350]
-                    }],
-                });
-
-                $("#chart2").kendoChart(settings2);
-
-                var settings3 = $.extend({}, settings, {
-                    series: [{
-                        name: "Number",
-                        data: [59, 170, 290]
-                    }],
-                });
-                $("#chart3").kendoChart(settings3);
-
-                var settings4 = $.extend({}, settings, {
-                    series: [{
-                        name: "Number",
-                        data: [30, 49, 400]
-                    }],
-                });
-                $("#chart4").kendoChart(settings4);
-                $("#primaryTextButton").kendoButton();
-              
-             
+        $(function () {
+            function myClickHandler(e) {
+                createChart("#chart4", 15, 20, 360);
             }
-         
-            $(document).ready(createChart);
+        });
+
+            $(document).ready(function(){
+               
+                $("#primaryTextButton").kendoButton();
+            });
+
             $(document).bind("kendo:skinChange", createChart);
             $(document).ready(function () {
                 $("#tabstrip").kendoTabStrip({
@@ -193,59 +182,59 @@
                     }
                 });
             });
-        </script>
-    }
+    </script>
+}
 
-    @section styles {
-        <link rel="stylesheet" href="/kendo/kendoui/styles/kendo.common.min.css" />
-        <link rel="stylesheet" href="/kendo/kendoui/styles/kendo.default.min.css" />
+@section styles {
+    <link rel="stylesheet" href="/kendo/kendoui/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="/kendo/kendoui/styles/kendo.default.min.css" />
 
-        <style>
-            div.textBox{
-                display:inline-block;
-                
-                margin: 10px;
+    <style>
+        div.textBox {
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .sunny, .cloudy, .rainy {
+            display: block;
+            margin: 30px auto 10px;
+            width: 128px;
+            height: 128px;
+            background: url('../content/web/tabstrip/weather.png') transparent no-repeat 0 0;
+        }
+
+        .cloudy {
+            background-position: -128px 0;
+        }
+
+        .rainy {
+            background-position: -256px 0;
+        }
+
+        .weather {
+            margin: 0 auto 30px;
+            text-align: center;
+        }
+
+        #tabstrip h2 {
+            font-weight: lighter;
+            font-size: 5em;
+            line-height: 1;
+            padding: 0 0 0 30px;
+            margin: 0;
+        }
+
+            #tabstrip h2 span {
+                background: none;
+                padding-left: 5px;
+                font-size: .3em;
+                vertical-align: top;
             }
-             .sunny, .cloudy, .rainy {
-                display: block;
-                margin: 30px auto 10px;
-                width: 128px;
-                height: 128px;
-                background: url('../content/web/tabstrip/weather.png') transparent no-repeat 0 0;
-            }
 
-            .cloudy {
-                background-position: -128px 0;
-            }
-
-            .rainy {
-                background-position: -256px 0;
-            }
-
-            .weather {
-                margin: 0 auto 30px;
-                text-align: center;
-            }
-
-            #tabstrip h2 {
-                font-weight: lighter;
-                font-size: 5em;
-                line-height: 1;
-                padding: 0 0 0 30px;
-                margin: 0;
-            }
-
-                #tabstrip h2 span {
-                    background: none;
-                    padding-left: 5px;
-                    font-size: .3em;
-                    vertical-align: top;
-                }
-
-            #tabstrip p {
-                margin: 0;
-                padding: 0;
-            }
-        </style>
-    }
+        #tabstrip p {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+}
 
