@@ -10,7 +10,15 @@ namespace TestKendoUI.Controllers
     {
         public ActionResult Index()
         {
-            List<CommonStudent> students = new DataClasses1DataContext().CommonStudents.Take(5).ToList();
+            List<string> students = new DataClasses1DataContext()
+                .CommonStudents
+                .Take(5)
+                .Select(x => x.FirstName)
+                .ToList();
+
+
+
+
             return View();
         }
 

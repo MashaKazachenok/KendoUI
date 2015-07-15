@@ -7,6 +7,6 @@ namespace TestKendoUI.Models
 {
     public class ListStudentsViewModel
     {
-        List<string> Students { get; set; }
+       public List<string> Students { get; set; }
     }
 }
