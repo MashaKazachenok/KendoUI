@@ -1,0 +1,26 @@
+﻿@model int
+         @{
+             var idButton = "ok" + Model;
+             var idTab = "chart" + Model;
+             
+         }  
+<div>
+    <div class="demo-section k-content">
+        <div>
+            <div class="textBox">
+                <label for="currency">History:</label>
+                <input type="number" value="30" min="0" max="60" style="width: 100%;" />
+            </div>
+            <div class="textBox">
+                <label for="currency">Algebra:</label>
+                <input type="number" value="30" min="0" max="60" style="width: 100%;" />
+            </div>
+            <div class="textBox">
+                <label for="currency">Biology:</label>
+                <input type="number" value="30" min="0" max="60" style="width: 100%;" />
+            </div>
+            <button id="@idButton" class="k-primary">Ok</button>
+        </div>
+        <div id="@idTab"></div>
+    </div>
+    </div>

@@ -25,86 +25,10 @@
                     }
                 }
             </ul>
-            <div>
-                <div class="demo-section k-content">
-                    <div>
-                        <div class="textBox">
-                            <label for="currency">History:</label>
-                            <input type="number" value="30" min="0" max="60" style="width: 100%;" />
-                        </div>
-                        <div class="textBox">
-                            <label for="currency">Algebra:</label>
-                            <input type="number" value="30" min="0" max="60" style="width: 100%;" />
-                        </div>
-                        <div class="textBox">
-                            <label for="currency">Biology:</label>
-                            <input type="number" value="30" min="0" max="60" style="width: 100%;" />
-                        </div>
-                        <button id="ok1" class="k-primary">Ok</button>
-                    </div>
-                    <div id="chart"></div>
-                </div>
-            </div>
-            <div>
-                <div class="demo-section k-content">
-                    <div>
-                        <div class="textBox">
-                            <label for="currency">History:</label>
-                            <input type="number" value="30" min="0" max="60" style="width: 100%;" />
-                        </div>
-                        <div class="textBox">
-                            <label for="currency">Algebra:</label>
-                            <input type="number" value="30" min="0" max="60" style="width: 100%;" />
-                        </div>
-                        <div class="textBox">
-                            <label for="currency">Biology:</label>
-                            <input type="number" value="30" min="0" max="60" style="width: 100%;" />
-                        </div>
-                        <button id="ok2" class="k-primary">Ok</button>
-                    </div>
-                    <div id="chart2"></div>
-                </div>
-            </div>
-            <div>
-                <div class="demo-section k-content">
-                    <div>
-                        <div class="textBox">
-                            <label for="currency">History:</label>
-                            <input type="number" value="30" min="0" max="60" style="width: 100%;" />
-                        </div>
-                        <div class="textBox">
-                            <label for="currency">Algebra:</label>
-                            <input type="number" value="30" min="0" max="60" style="width: 100%;" />
-                        </div>
-                        <div class="textBox">
-                            <label for="currency">Biology:</label>
-                            <input type="number" value="30" min="0" max="60" style="width: 100%;" />
-                        </div>
-                        <button id="ok3" class="k-primary">Ok</button>
-                    </div>
-                    <div id="chart3"></div>
-                </div>
-            </div>
-            <div>
-                <div class="demo-section k-content">
-                    <div>
-                        <div class="textBox">
-                            <label for="currency">History:</label>
-                            <input type="number" value="30" min="0" max="60" style="width: 100%;" />
-                        </div>
-                        <div class="textBox">
-                            <label for="currency">Algebra:</label>
-                            <input type="number" value="30" min="0" max="60" style="width: 100%;" />
-                        </div>
-                        <div class="textBox">
-                            <label for="currency">Biology:</label>
-                            <input type="number" value="30" min="0" max="60" style="width: 100%;" />
-                        </div>
-                        <button id="ok4" class="k-primary">Ok</button>
-                    </div>
-                    <div id="chart4"></div>
-                </div>
-            </div>
+            @for (int i = 1; i <= Model.Students.Count(); i++)
+			{
+			    @Html.Partial("Tab", i);
+			}
         </div>
     </div>
 </div>
@@ -134,7 +58,7 @@
                     type: "bar"
                 },
                 valueAxis: {
-                    max: 1600,
+                    max: 60,
                     line: {
                         visible: false
                     },
@@ -170,25 +94,11 @@
 
 
         $(document).ready(function () {
-            initOkButton("#ok1", "#chart");
+            initOkButton("#ok1", "#chart1");
             initOkButton("#ok2", "#chart2");
             initOkButton("#ok3", "#chart3");
             initOkButton("#ok4", "#chart4");
-        });
 
-        function initOkButton(button, chart) {
-            $(button).kendoButton({
-                click: function (e) {
-
-                    var inputs = $(e.event.target).parent().find('input');
-
-                    createChart(chart, $(inputs[0]).val(), $(inputs[1]).val(), $(inputs[2]).val());
-                }
-            });
-        }
-
-        $(document).bind("kendo:skinChange", createChart);
-        $(document).ready(function () {
             $("#tabstrip").kendoTabStrip({
                 animation: {
                     open: {
@@ -197,6 +107,29 @@
                 }
             });
         });
+
+        function initOkButton(button, chart) {
+            $(button).kendoButton({
+                click: function (e) {
+
+                    var inputs = $(e.event.target).parent().find('input');
+
+
+                    createChart(chart, $(inputs[0]).val(), $(inputs[1]).val(), $(inputs[2]).val());
+                }
+            });
+        }
+
+        //$(document).bind("kendo:skinChange", createChart);
+        //$(document).ready(function () {
+        //    $("#tabstrip").kendoTabStrip({
+        //        animation: {
+        //            open: {
+        //                effects: "fadeIn"
+        //            }
+        //        }
+        //    });
+        //});
     </script>
 }
 
