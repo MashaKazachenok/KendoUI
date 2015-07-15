@@ -11,23 +11,19 @@
             <ul>
                 @foreach (var student in Model.Students)
                 {
-                    <li class="k-state-active">
-                        @student
-                    </li>
+                    if (student == @Model.Students[0])
+                    {
+                        <li class="k-state-active">
+                            @student
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            @student
+                        </li>
+                    }
                 }
-
-                <li class="k-state-active">
-                    Olga
-                </li>
-                <li>
-                    Masha
-                </li>
-                <li>
-                    Dasha
-                </li>
-                <li>
-                    Alex
-                </li>
             </ul>
             <div>
                 <div class="demo-section k-content">

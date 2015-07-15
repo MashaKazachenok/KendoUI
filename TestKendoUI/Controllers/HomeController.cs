@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TestKendoUI.Models;
 
 namespace TestKendoUI.Controllers
 {
@@ -12,14 +13,13 @@ namespace TestKendoUI.Controllers
         {
             List<string> students = new DataClasses1DataContext()
                 .CommonStudents
-                .Take(5)
-                .Select(x => x.FirstName)
+                .Take(4)
+                .Select(x => x.FirstName + " " + x.LastName)
                 .ToList();
+            var model = new ListStudentsViewModel();
+            model.Students = students;
 
-
-
-
-            return View();
+            return View(model);
         }
 
         public ActionResult About()
