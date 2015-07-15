@@ -11,7 +11,7 @@ namespace TestKendoUI.Controllers
     {
         public ActionResult Index()
         {
-            List<string> students = new DataClasses1DataContext()
+            var students = new DataClasses1DataContext()
                 .CommonStudents
                 .Take(4)
                 .Select(x => x.FirstName + " " + x.LastName)
