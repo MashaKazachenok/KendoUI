@@ -2,10 +2,21 @@
     ViewBag.Title = "Home Page";
 }
 
+@using TestKendoUI.Models
+@model ListStudentsViewModel
+
 <div>
     <div class="demo-section k-header">
         <div id="tabstrip">
             <ul>
+                @foreach (var student in Model.Students)
+                {
+                    <li class="k-state-active">
+                        @student.
+
+                    </li>
+                }
+
                 <li class="k-state-active">
                     Olga
                 </li>
@@ -161,37 +172,36 @@
             $(teg).kendoChart(settings);
         }
 
-        
 
-            $(document).ready(function(){               
-                initOkButton("#ok1", "#chart");
-                initOkButton("#ok2", "#chart2");
-                initOkButton("#ok3", "#chart3");
-                initOkButton("#ok4", "#chart4");
+
+        $(document).ready(function () {
+            initOkButton("#ok1", "#chart");
+            initOkButton("#ok2", "#chart2");
+            initOkButton("#ok3", "#chart3");
+            initOkButton("#ok4", "#chart4");
+        });
+
+        function initOkButton(button, chart) {
+            $(button).kendoButton({
+                click: function (e) {
+
+                    var inputs = $(e.event.target).parent().find('input');
+
+                    createChart(chart, $(inputs[0]).val(), $(inputs[1]).val(), $(inputs[2]).val());
+                }
             });
+        }
 
-            function initOkButton(button, chart)
-            {
-                $(button).kendoButton({
-                    click: function (e) {
-
-                        var inputs = $(e.event.target).parent().find('input');
-
-                        createChart(chart, $(inputs[0]).val(), $(inputs[1]).val(), $(inputs[2]).val());
+        $(document).bind("kendo:skinChange", createChart);
+        $(document).ready(function () {
+            $("#tabstrip").kendoTabStrip({
+                animation: {
+                    open: {
+                        effects: "fadeIn"
                     }
-                });
-            }
-
-            $(document).bind("kendo:skinChange", createChart);
-            $(document).ready(function () {
-                $("#tabstrip").kendoTabStrip({
-                    animation: {
-                        open: {
-                            effects: "fadeIn"
-                        }
-                    }
-                });
+                }
             });
+        });
     </script>
 }
 
